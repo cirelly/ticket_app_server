@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
+const customerRoutes = require('../routes/user.routes')
 
 const app = express();
 
@@ -16,5 +17,11 @@ app.use((req, res, next) => {
       res.header("Allow", "GET, POST, OPTIONS, PUT, DELETE");
       next();
 })
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+//routes
+app.use('/api', customerRoutes)
+
 
 module.exports = app;

@@ -18,6 +18,3 @@ try {
     console.log('error connecting db');
     throw error
 }
-// mongoose.connect(MONGO_URI, mongooseOptions)
-//     .then(db => console.log("Database is connected!"))
-//     .catch(err => console.log(err)); 
