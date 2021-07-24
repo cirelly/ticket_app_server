@@ -55,11 +55,13 @@ addCustomer  = async (req, res)=> {
         res.status(500).send(error);
        
     }
+    
+   
+
 }
 
 getCustomers = async (req, res) => {
     try {
-        //obtenemos todos los usuarios
         const customers = await CustomerSupportSchema.find()
       
         res.status(200).send({ data: customers})
