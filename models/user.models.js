@@ -8,7 +8,8 @@ const CustomerSupportSchema = Schema({
     },
     userName: String,
     queueNumber: Number,
-    supportTimestamp: Number
+    supportTimestamp: Number,
+    attended: Boolean
     },
     { timestamps: true }
 )
