@@ -9,12 +9,12 @@ module.exports ={
             //consulta cola 1 para actualizar el estado de atendido
             const firstQueue = await CustomerSupportSchema.updateMany({
                 queueNumber: 1,
-                supportTimestamp: { $lt:  moment() - (1000*60*2) //query para saber cuando el cliente fue atendido
+                supportTimestamp: { $lt:  moment() - (1000*60*1) //query para saber cuando el cliente fue atendido
             }}, {attended: true}) //actualizando el estado
             
             const secondQueue = await CustomerSupportSchema.updateMany({
                 queueNumber: 2,
-                supportTimestamp: { $lt:  moment() - (1000*60*3) 
+                supportTimestamp: { $lt:  moment() - (1000*60*2) 
             }},{attended: true})
             
             

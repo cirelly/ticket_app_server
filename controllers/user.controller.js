@@ -15,11 +15,12 @@ addCustomer  = async (req, res)=> {
         // const userIdValidate = await CustomerSupportSchema.find()
         //Validamos las colas 
         //aqui contamos los que estan en la cola 1
-        const countFirstQueue = await CustomerSupportSchema.countDocuments({queueNumber: 1})
+        const countFirstQueue = await CustomerSupportSchema.countDocuments({attended: false, queueNumber: 1})
 
         //aqui contamos a los que estan en la cola
-        const countSecondQueue = await CustomerSupportSchema.countDocuments({ queueNumber: 2}); 
-    
+        const countSecondQueue = await CustomerSupportSchema.countDocuments({attended:false, queueNumber: 2}); 
+        console.log(countFirstQueue);
+        console.log(countSecondQueue);
         if(!countFirstQueue){ //si la primera cola esta vacia el usuario entra aqui
             user.queueNumber = 1
             //Obtenemos la fecha y la hora actual
@@ -38,12 +39,12 @@ addCustomer  = async (req, res)=> {
             user.supportTimestamp = now.get()
 
         }else if(countFirstQueue *120 > countSecondQueue *180){
-            const lastCustomer = await CustomerSupportSchema.findOne({},{},{ sort: { 'supportTimestamp' : -1 }})
+            const lastCustomer = await CustomerSupportSchema.findOne({queueNumber: 2},{},{ sort: { 'supportTimestamp' : -1 }})
             user.supportTimestamp = lastCustomer.supportTimestamp + (1000*60*3)
             user.queueNumber = 2
 
         }else{
-            const lastCustomer = await CustomerSupportSchema.findOne({},{},{sort: { 'supportTimestamp' : -1 }})
+            const lastCustomer = await CustomerSupportSchema.findOne({queueNumber: 1},{},{sort: { 'supportTimestamp' : -1 }})
             user.supportTimestamp = lastCustomer.supportTimestamp + (1000*60*2)
             user.queueNumber = 1
         } 
