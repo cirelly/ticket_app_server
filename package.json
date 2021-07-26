@@ -1,0 +1,26 @@
+{
+  "name": "ticket_app_server",
+  "version": "1.0.0",
+  "description": "ticket app server",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "moment": "^2.29.1",
+    "mongoose": "^5.13.3",
+    "morgan": "^1.10.0",
+    "node-schedule": "^2.0.0",
+    "dotenv": "^10.0.0"
+  },
+  "devDependencies": {
+    
+    "nodemon": "^2.0.12"
+  }
+}
