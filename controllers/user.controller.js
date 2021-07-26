@@ -26,7 +26,7 @@ addCustomer  = async (req, res)=> {
             //Obtenemos la fecha y la hora actual
             let now = moment(); // fecha y hora actual
             now.set('second',0); // eliminamos los segundos
-            now.set('minute', now.get('minute') + 1); // la agregamos 1 min
+            now.set('minute', now.get('minute')); // seteamos los min
             console.log(now.get());
             user.supportTimestamp = now.get()
         
@@ -35,7 +35,7 @@ addCustomer  = async (req, res)=> {
             //Obtenemos la fecha y la hora actual
             let now = moment(); // fecha y hora actual
             now.set('second',0); // eliminamos los segundos
-            now.set('minute', now.get('minute') + 1); // la agregamos 1 min
+            now.set('minute', now.get('minute')); // seteamos los min
             user.supportTimestamp = now.get()
 
         }else if(countFirstQueue *120 > countSecondQueue *180){
