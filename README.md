@@ -1,6 +1,6 @@
 # TickQApp Servidor.
 ## Pasos para iniciar el servidor.
-1. Clonar el repositorio y moverse a la rama: `develop`.
+1. Clonar el repositorio.
 2. Correr `npm install`
 3. Crear archivo .env como lo indica el archivo `env.example`.
 4. Correr `npm start`
