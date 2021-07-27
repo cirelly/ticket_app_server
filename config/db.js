@@ -15,6 +15,6 @@ try {
 } catch (error) {
     
     console.log(error);
-    console.log('error connecting db');
+    
     throw error
 }

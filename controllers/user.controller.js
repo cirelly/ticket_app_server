@@ -19,15 +19,13 @@ addCustomer  = async (req, res)=> {
 
         //aqui contamos a los que estan en la cola
         const countSecondQueue = await CustomerSupportSchema.countDocuments({attended:false, queueNumber: 2}); 
-        console.log(countFirstQueue);
-        console.log(countSecondQueue);
+     
         if(!countFirstQueue){ //si la primera cola esta vacia el usuario entra aqui
             user.queueNumber = 1
             //Obtenemos la fecha y la hora actual
             let now = moment(); // fecha y hora actual
             now.set('second',0); // eliminamos los segundos
             now.set('minute', now.get('minute')); // seteamos los min
-            console.log(now.get());
             user.supportTimestamp = now.get()
         
         }else if(!countSecondQueue){ // y si la primera cola tiene 1 y la segunda esta vacia, entra aqui
